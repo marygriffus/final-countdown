@@ -56,7 +56,22 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-      // Put some code in here!
+      $('document').ready(function() {
+        function finalCountdown(event) {
+          event.preventDefault();
+          counter = setInterval(function() {
+            if (countDown > 0) {
+              countDown--;
+              $('#counter').val(countDown)
+            } else {
+              clearInterval(counter);
+              $('#counter').addClass('fail');
+            }
+          }, 1)
+        }
+        var countDown = 1234;
+        $('#counter').click(finalCountdown)
+      })
     </script>
 
   </head>
